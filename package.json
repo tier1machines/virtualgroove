@@ -1,0 +1,31 @@
+{
+  "name": "virtualgroove",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development --open --hot",
+    "dev": "concurrently \"nodemon server.js\" \"webpack -w\"",
+    "build": "webpack --mode production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "7.7.4",
+    "babel-loader": "8.0.6",
+    "concurrently": "^5.0.2",
+    "webpack": "4.41.4",
+    "webpack-cli": "3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2"
+  }
+}
