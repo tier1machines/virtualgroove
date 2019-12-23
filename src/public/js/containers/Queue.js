@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 /* Components */
 import Track from '../presentation/Track';
-import InfoBar from './InfoBar';
+import Turntable from './Turntable';
 
 class Queue extends Component {
   constructor() {
@@ -21,7 +21,7 @@ class Queue extends Component {
 
 	return (
 	  <div id='queue'>
-		<InfoBar />
+		<Turntable />
 		<div id='trackList'>
 		  {tracks}
 		</div>

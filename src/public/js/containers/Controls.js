@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 /* Components */
 import Queue from './Queue';
-import Turntable from './Turntable';
 
 class Controls extends Component {
 
@@ -10,7 +9,6 @@ class Controls extends Component {
 	return (
 	  <div id='controls'>
 		<Queue />
-		<Turntable />
 	  </div>
 	)
   }
