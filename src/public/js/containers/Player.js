@@ -4,7 +4,7 @@ class Player extends Component {
 
   render() {
 	return (
-	  <div id='video-player'>
+	  <div id='player'>
 		<p>video player</p>
 	  </div>
 	)
