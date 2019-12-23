@@ -19,7 +19,6 @@ html, body {
   width: 100%;
 }
 
-/*** DASHBOARD START ***/
 #dashboard {
   height: 100%;
   min-height: 500px;
@@ -29,28 +28,47 @@ html, body {
   grid-template-rows: 40% 60%;
 }
 
-/* DASHBOARD END */
-
-/*** PLAYER START ***/
 #player {
   background-color: red;
 }
 
-/* PLAYER END */
-
-/*** QUEUE START ***/
-#queue {
-
+#controls {
+  display: grid;
+  grid-template-rows: 300px calc(100% - 300px);
+  grid-column-gap: 15px;
 }
 
-/* QUEUE END */
+#queue {
+  display: grid;
+  grid-template-rows: calc(100% - 220px) 220px;
+  background-color: lightblue;
+}
 
-/*** TRACK START ***/
-#track {
+.trackContainer {
   height: 200px;
   width: 200px;
-  background-color: green;
+  border: 1px solid black;
+  margin: 10px;
+  display: inline-block;
 }
 
-/* TRACK END */
+.track {
+  background-color: green;
+  display: inline;
+}
+
+#infobar {
+  background-color: teal;
+}
+
+#turntable {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background-color: orange;
+}
+
+
+#addtrack {
+  background-color: lightpink;
+}
 

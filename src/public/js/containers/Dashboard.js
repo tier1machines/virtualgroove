@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 /* Components */
 import Player from './Player';
-import Queue from './Queue';
+import Controls from './Controls';
 
 class Dashboard extends Component {
 
@@ -10,7 +10,7 @@ class Dashboard extends Component {
 	return (
 	  <div id='dashboard'>
 		<Player />
-		<Queue />
+		<Controls />
 	  </div>
 	)
   }
