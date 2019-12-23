@@ -5,7 +5,7 @@ class Player extends Component {
   constructor() {
 	super();
 	this.state = {
-	  source: 'https://www.youtube.com/embed/50JJZIKdj0s',
+	  //source: 'https://www.youtube.com/embed/50JJZIKdj0s',
 	}
   }
 
