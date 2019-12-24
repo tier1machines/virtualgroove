@@ -6,15 +6,16 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 /*** COMPONENTS ***/
+import Navbar from './containers/Navbar';
 import Dashboard from './containers/Dashboard';
 
 const Root = () => {
   return (
 	<>
-	  <h1>Virtual Groove!!</h1>
- 	  	<Router>
-		  <Route exact path='/' component={Dashboard} />
-		</Router>
+	  <Navbar />
+	  <Router>
+		<Route exact path='/' component={Dashboard} />
+	  </Router>
 	</>
   )
 }
