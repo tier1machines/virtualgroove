@@ -25,7 +25,7 @@ html, body {
   width: 100%;
   background-color: ghostwhite;
   display: grid;
-  grid-template-rows: 50% 50%;
+  grid-template-rows: 45% 55%;
 }
 
 #player {
@@ -74,11 +74,30 @@ html, body {
   border: 1px solid black;
   margin: 10px;
   display: inline-block;
+  position: relative;
+  white-space: normal;
 }
 
 .track {
   background-color: green;
   display: inline;
+}
+
+.trackCover {
+  height: 100%;
+  width: 100%;
+}
+
+.trackTitle {
+  position: absolute;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  color: ghostwhite;
+  text-shadow: 1px 1px 1px black;
+  font-family: Roboto, arial, sans-serif;
+  background:rgba(0,0,0,0.5);
 }
 
 #enso{
@@ -105,6 +124,13 @@ html, body {
 
 #results {
   background-color: lightyellow;
+  display: grid;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+#resultsContainer {
+  white-space: nowrap;
 }
 
 /* ADDTRACK end */
