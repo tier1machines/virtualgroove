@@ -43,8 +43,8 @@ class Player extends Component {
   }
 
   onPlayerReady = event => {
-	console.log('Event: ', event.target);
-	event.target.playVideo();
+	console.log('Event: ', event.target.getDuration());
+	//event.target.playVideo();
   };
 
   render() {

@@ -8,7 +8,7 @@ class Controls extends Component {
   render() {
 	return (
 	  <div id='controls'>
-		<Queue />
+		<Queue queue={this.props.queue} addTrack={this.props.addTrack} />
 	  </div>
 	)
   }

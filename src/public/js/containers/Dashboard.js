@@ -6,11 +6,27 @@ import Controls from './Controls';
 
 class Dashboard extends Component {
 
+  constructor() {
+	super();
+	this.state = {
+	  currentVideo: '',
+	  changeTracks: false,
+	  queue: [],
+	}
+  };
+
+  addTrack = e => {
+	console.log('Clicked: ', e);
+	const queueCopy = Object.assign([], this.state.queue);
+	queueCopy.push(e);
+	this.setState({ queue: queueCopy });
+  }
+
   render() {
 	return (
 	  <div id='dashboard'>
-		<Player id='50JJZIKdj0s'/>
-		<Controls />
+		<Player id={this.state.currentVideo} />
+		<Controls queue={this.state.queue} addTrack={this.addTrack} />
 	  </div>
 	)
   }

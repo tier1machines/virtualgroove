@@ -26,11 +26,9 @@ class Turntable extends Component {
 
   onSubmit(e) {
 	e.preventDefault();
-	console.log('Searching for: ', this.state.searchTerm);
 	axios.post('/api/search/', { searchTerm: this.state.searchTerm })
 		 .then( res => {
 		   this.setState({ searchResults: res.data})
-		   console.log(this.state);
 		 })
 		 .catch( err => console.log(err) );
   }
@@ -41,7 +39,7 @@ class Turntable extends Component {
 	  <div id='turntable'>
 		<Search onChange={this.onChange} onSubmit={this.onSubmit} searchTerm={this.state.searchTerm} />
 		<Enso />
-		<Results searchResults={this.state.searchResults} />
+		<Results searchResults={this.state.searchResults} addTrack={this.props.addTrack} />
 	  </div>
 	)
   }

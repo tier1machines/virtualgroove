@@ -8,20 +8,20 @@ class Queue extends Component {
   constructor() {
 	super();
 	this.state = {
-	  tracks: [1, 2],
+	  tracks: [],
 	}
   }
 
   render() {
-	const tracks = this.state.tracks.map( (track, i) => (
+	const tracks = this.props.queue.map( (track, i) => (
 	  <div className='trackContainer' key={i}>
-		<Track />
+		<Track track={track} />
 	  </div>
 	));
 
 	return (
 	  <div id='queue'>
-		<Turntable />
+		<Turntable addTrack={this.props.addTrack} />
 		<div id='trackList'>
 		  {tracks}
 		</div>
