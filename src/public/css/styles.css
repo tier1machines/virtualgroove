@@ -56,14 +56,30 @@ html, body {
 }
 
 /*** ENSO start ***/
-#enso {
+#enso{
+  background-color: teal;
+  position: relative;
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
-.void {
-  background-color: black;
+#anime {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1px;
+  height: 100%;
 }
 
-#animejs {
+.el {
+  position: absolute;
+  opacity: 1;
+  width: 2px;
+  height: 30%;
+  margin-top: -4vh;
+  transform-origin: 50% 100%;
+  background: white;
 }
 
 /* ENSO end */
@@ -108,9 +124,6 @@ html, body {
   padding-top: 10px;
 }
 
-#enso{
-  background-color: teal;
-}
 
 #turntable {
   display: grid;
@@ -139,6 +152,10 @@ html, body {
 
 #resultsContainer {
   white-space: nowrap;
+}
+
+.void {
+  background-color: black;
 }
 
 /* ADDTRACK end */
