@@ -3,8 +3,8 @@ import React from 'react';
 const Track = props => {
   return (
 	<div className='track'>
-	  <h3>{props.track.snippet.title}</h3>
-	  <img src={props.track.snippet.thumbnails.default.url} />
+	  <img src={props.track.snippet.thumbnails.default.url} className='trackCover' />
+	  <p className='trackTitle'>{props.track.snippet.title}</p>
 	</div>
   )
 }
