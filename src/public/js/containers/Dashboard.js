@@ -9,7 +9,7 @@ class Dashboard extends Component {
   render() {
 	return (
 	  <div id='dashboard'>
-		<Player />
+		<Player id='50JJZIKdj0s'/>
 		<Controls />
 	  </div>
 	)
