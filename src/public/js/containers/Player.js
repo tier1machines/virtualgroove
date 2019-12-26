@@ -17,24 +17,32 @@ class Player extends Component {
 	  tag.src = 'https://www.youtube.com/iframe_api';
 
 	  // onYoutubeIframeAPIReady will load the video after the script is loaded
-	  window.onYouTubeIframeAPIReady = this.loadVideo;
+	  if (this.props.currentVideo !== '') {
+		window.onYouTubeIframeAPIReady = this.loadVideo;
+	  }
 
 	  const firstScriptTag = document.getElementsByTagName('script')[0];
 	  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
 	} else { // if script is already there, immediately load video
 	  this.loadVideo();
 	}
   };
 
+  // Load next video on prop change
+  componentDidUpdate = prevProps => {
+	if (this.props.currentVideo !== prevProps.currentVideo) {
+	  this.loadVideo();
+	}
+  }
 
+  // Create a new YT player object
   loadVideo = () => {
-	const { id } = this.props;
+	const { currentVideo } = this.props;
 	// The Player object is created uniquely based on the id passed as props
-	this.player = new window.YT.Player(`youtube-player-${id}`, {
+	this.player = new window.YT.Player(`youtube-player-main`, {
 	  height: '100%',
 	  width: '100%',
-	  videoId: id,
+	  videoId: currentVideo,
 	  events: {
 		onReady: this.onPlayerReady,
 		onStateChange: this.onPlayerStateChange,
@@ -43,15 +51,14 @@ class Player extends Component {
   }
 
   onPlayerReady = event => {
-	console.log('Event: ', event.target.getDuration());
-	//event.target.playVideo();
+	//console.log('Event: ', event.target.getDuration());
+	event.target.playVideo();
   };
 
   render() {
-	const { id } = this.props;
 	return (
 	  <div id='player'>
-		<div id={`youtube-player-${id}`}>
+		<div id='youtube-player-main'>
 		</div>
 	  </div>
 	)

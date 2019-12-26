@@ -43,7 +43,7 @@ const Enso = props => {
   }
 
   useEffect( () => { 
-	animate();
+	//animate();
   }, []);
 
 
