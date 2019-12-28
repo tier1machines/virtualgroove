@@ -22,15 +22,22 @@ class Dashboard extends Component {
 	const queueCopy = Object.assign([], this.state.queue);
 	queueCopy.push(e);
 	this.setState({ queue: queueCopy });
-  }
+  };
 
+  setCurrentVideo = selectedVideo => {
+	this.setState({ currentVideo: selectedVideo });
+  };
+
+  loadNextVideo = () => {
+	this.setState({ changeTracks : true });
+  };
   
 
   render() {
 	return (
 	  <div id='dashboard'>
-		<Player currentVideo={this.state.currentVideo} />
-		<Controls queue={this.state.queue} addTrack={this.addTrack} />
+		<Player currentVideo={this.state.currentVideo} loadNextVideo={this.loadNextVideo} />
+		<Controls queue={this.state.queue} addTrack={this.addTrack} setCurrentVideo={this.setCurrentVideo} />
 	  </div>
 	)
   }

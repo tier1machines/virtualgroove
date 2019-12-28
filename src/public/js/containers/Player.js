@@ -55,6 +55,21 @@ class Player extends Component {
 	event.target.playVideo();
   };
 
+  onPlayerStateChange = event => {
+	console.log(event);
+	// event.data properties:
+	// -1 (unstarted)
+	// 0 (ended)
+	// 1 (playing)
+	// 2 (paused)
+	// 3 (buffering)
+	// 5 (video cued)
+	if (event.data === 0) {
+	  // cue next video
+	  this.props.loadNextVideo();
+	}
+  }
+
   render() {
 	return (
 	  <div id='player'>

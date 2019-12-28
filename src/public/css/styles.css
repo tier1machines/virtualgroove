@@ -6,6 +6,11 @@ html, body {
   background-color: grey;
 }
 
+@font-face {
+  font-family: Samba;
+  src: url("./fonts/Samba.ttf");
+}
+
 #root {
   height: 100%;
   width: 100%;
@@ -134,13 +139,26 @@ html, body {
 /*** ADDTRACK start ***/
 #search {
   display: grid;
-  grid-template-rows: calc((100% - 50px) / 2) 50px calc((100% - 50px) / 2);
+  grid-template-rows: calc((100% - 40px) / 2) 40px calc((100% - 40px) / 2);
   background-color: lightpink;
+}
+
+.searchBtn {
+  font-size: 28px;
+  font-family: Samba;
+  border-radius: 5px;
 }
 
 #addTrackContainer {
   background-color: wheat;
-  padding-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+#addTrackInput {
+  margin-right: 10px;
+  font-size: 28px;
+  font-family: Samba;
 }
 
 #results {
