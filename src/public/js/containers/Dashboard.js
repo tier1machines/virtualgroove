@@ -25,7 +25,7 @@ class Dashboard extends Component {
   };
 
   setCurrentVideo = selectedVideo => {
-	this.setState({ currentVideo: selectedVideo });
+	this.setState({ currentVideo: selectedVideo.id.videoId });
   };
 
   loadNextVideo = () => {

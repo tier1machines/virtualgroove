@@ -14,7 +14,7 @@ class Queue extends Component {
 
   render() {
 	const tracks = this.props.queue.map( (track, i) => (
-	  <div className='trackContainer' key={i}>
+	  <div className='trackContainer' onClick={() => this.props.setCurrentVideo(track)} key={i}>
 		<Track track={track} />
 	  </div>
 	));

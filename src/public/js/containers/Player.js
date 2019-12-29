@@ -30,8 +30,10 @@ class Player extends Component {
 
   // Load next video on prop change
   componentDidUpdate = prevProps => {
-	if (this.props.currentVideo !== prevProps.currentVideo) {
+	if (this.props.currentVideo !== prevProps.currentVideo && prevProps.currentVideo === '') {
 	  this.loadVideo();
+	} else if (this.props.currentVideo !== prevProps.currentVideo) {
+	  this.player.loadVideoById(this.props.currentVideo);
 	}
   }
 
@@ -56,7 +58,6 @@ class Player extends Component {
   };
 
   onPlayerStateChange = event => {
-	console.log(event);
 	// event.data properties:
 	// -1 (unstarted)
 	// 0 (ended)
