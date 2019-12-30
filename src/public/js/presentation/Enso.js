@@ -50,10 +50,14 @@ const Enso = props => {
   useEffect( () => { 
 	// Animate enso when music is playing
 	if (props.status === 1) {
+	  console.log('starting animation');
 	  animate();
-	} else {
-	// Otherwise display message
-	  ticker();
+	} else if (props.status === 0 || props.status === 2) {
+	  // Otherwise remove Enso 
+	  const elem = document.getElementById('anime');
+	  while (elem.firstChild) {
+	    elem.removeChild(elem.firstChild);
+	  }
 	}
   });
 
