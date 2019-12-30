@@ -30,9 +30,11 @@ class Player extends Component {
 
   // Load next video on prop change
   componentDidUpdate = prevProps => {
-	if (this.props.currentVideo !== prevProps.currentVideo && prevProps.currentVideo === '') {
+	if (this.props.currentVideo  && this.props.currentVideo !== prevProps.currentVideo && prevProps.currentVideo === '') {
+	  console.log('Initializing', this.props.currentVideo);
 	  this.loadVideo();
-	} else if (this.props.currentVideo !== prevProps.currentVideo) {
+	} else if (this.props.currentVideo && this.props.currentVideo !== prevProps.currentVideo) {
+	  console.log('Boot sequence');
 	  this.player.loadVideoById(this.props.currentVideo);
 	}
   };

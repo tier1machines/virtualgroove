@@ -5,17 +5,11 @@ import Track from '../presentation/Track';
 import Turntable from './Turntable';
 
 class Queue extends Component {
-  constructor() {
-	super();
-	this.state = {
-	  tracks: [],
-	}
-  }
 
   render() {
 	const tracks = this.props.queue.map( (track, i) => (
 	  <div className='trackContainer' onClick={() => this.props.setCurrentVideo(track, i)} key={i}>
-		<Track track={track} />
+		<Track track={track} removeVideo={this.props.removeVideo} index={i} />
 	  </div>
 	));
 

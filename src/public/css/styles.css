@@ -154,6 +154,11 @@ body {
   padding-top: 10px;
 }
 
+.remove {
+  color: white;
+  top: 0;
+  right: 0;
+}
 
 #turntable {
   display: grid;

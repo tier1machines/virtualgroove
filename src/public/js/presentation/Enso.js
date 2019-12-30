@@ -44,12 +44,9 @@ const Enso = props => {
 
   function ticker() {
 	console.log('Add tracks to begin playing music');
+	// TODO: When player is paused, display pause sign, otherwise display message
   }
 
-  useEffect( () => {
-	animate();
-  }, []);
-  /*
   useEffect( () => { 
 	// Animate enso when music is playing
 	if (props.status === 1) {
@@ -59,7 +56,6 @@ const Enso = props => {
 	  ticker();
 	}
   });
-  */
 
 
   return (

@@ -12,7 +12,6 @@ class Dashboard extends Component {
 	  currentVideo: '',
 	  index: '',
 	  status: '',
-	  changeTracks: false,
 	  queue: [],
 	}
   };
@@ -34,18 +33,18 @@ class Dashboard extends Component {
 	this.setState({ status });
   };
 
-  loadNextVideo = () => {
-	// Copy current queue
+  removeVideo = index => {
+	console.log('Removing video');
 	const queueCopy = Object.assign([], this.state.queue);
-
+	queueCopy.splice(index, 1);
+	this.setState({ queue: queueCopy });
   };
-  
 
   render() {
 	return (
 	  <div id='dashboard'>
-		<Player currentVideo={this.state.currentVideo} loadNextVideo={this.loadNextVideo} setStatus={this.setStatus} setCurrentVideo={this.setCurrentVideo} queue={this.state.queue} />
-		<Controls queue={this.state.queue} addTrack={this.addTrack} setCurrentVideo={this.setCurrentVideo} status={this.state.status} />
+		<Player currentVideo={this.state.currentVideo} setStatus={this.setStatus} setCurrentVideo={this.setCurrentVideo} queue={this.state.queue} />
+		<Controls queue={this.state.queue} addTrack={this.addTrack} setCurrentVideo={this.setCurrentVideo} status={this.state.status} removeVideo={this.removeVideo} />
 	  </div>
 	)
   }
