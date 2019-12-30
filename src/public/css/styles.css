@@ -52,6 +52,14 @@ body {
 
 #navbar {
   width: 100%;
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  text-align: center;
+  align-content: center;
+  color: ghostwhite;
+  font-family: Pirulen;
+  border: 1px solid #4C5B6D;
+  background-color: rgba(35, 47, 62, 0.3);
 }
 
 #dashboard {
