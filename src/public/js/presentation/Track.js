@@ -3,7 +3,9 @@ import React from 'react';
 const Track = props => {
   return (
 	<div className='track'>
-	  <h3>Next track</h3>
+	  <div className='remove' onClick={() => props.removeVideo(props.index)} >X</div>
+	  <img src={props.track.snippet.thumbnails.default.url} className='trackCover' />
+	  <p className='trackTitle'>{props.track.snippet.title}</p>
 	</div>
   )
 }

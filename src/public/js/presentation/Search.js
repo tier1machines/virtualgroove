@@ -1,14 +1,14 @@
 import React from 'react';
 
-const Search = () => {
+const Search = props => {
   return (
 	<div id='search'>
 
 	  <div className='void'> </div>
 
 	  <div id='addTrackContainer'>
-		<input className='input' id='addTrackInput' placeholder='Search for Tracks' />
-		<button>Add Track</button>
+		<input name='searchTerm' value={props.searchTerm} onChange={props.onChange} className='input' id='addTrackInput' placeholder='Search for Tracks' />
+		<input type='submit' value='Search' className='searchBtn' onClick={props.onSubmit} />
 	  </div>
 
 	  <div className='void'> </div>
