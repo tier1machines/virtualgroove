@@ -34,7 +34,7 @@ class Player extends Component {
 	  console.log('Initializing', this.props.currentVideo);
 	  this.loadVideo();
 	} else if (this.props.currentVideo && this.props.currentVideo !== prevProps.currentVideo) {
-	  console.log('Boot sequence');
+	  console.log('Booting next video');
 	  this.player.loadVideoById(this.props.currentVideo);
 	}
   };
@@ -76,7 +76,7 @@ class Player extends Component {
 		this.props.setCurrentVideo(queue[nextIndex], nextIndex);
 	  };
 	} else {
-	  console.log('Reached the end of queue. Add more songs to continue playing');
+	  console.log('Player status: ', event.data);
 	}
   };
 
