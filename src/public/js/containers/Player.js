@@ -35,7 +35,7 @@ class Player extends Component {
 	} else if (this.props.currentVideo !== prevProps.currentVideo) {
 	  this.player.loadVideoById(this.props.currentVideo);
 	}
-  }
+  };
 
   // Create a new YT player object
   loadVideo = () => {
@@ -50,7 +50,7 @@ class Player extends Component {
 		onStateChange: this.onPlayerStateChange,
 	  },
 	});
-  }
+  };
 
   onPlayerReady = event => {
 	//console.log('Event: ', event.target.getDuration());
@@ -65,11 +65,18 @@ class Player extends Component {
 	// 2 (paused)
 	// 3 (buffering)
 	// 5 (video cued)
+	this.props.setStatus(event.data);
 	if (event.data === 0) {
-	  // cue next video
-	  this.props.loadNextVideo();
+	  // check if next song exists in queue
+	  if (this.props.index + 1 <= this.props.queue.length - 1) {
+		// set next video as current video and update index
+		const nextIndex = this.props.index + 1;
+		this.props.setCurrentVideo(queue[nextIndex], nextIndex);
+	  };
+	} else {
+	  console.log('Reached the end of queue. Add more songs to continue playing');
 	}
-  }
+  };
 
   render() {
 	return (

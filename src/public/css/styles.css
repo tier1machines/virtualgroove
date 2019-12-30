@@ -10,6 +10,10 @@ body {
   background: #16212F;
   background-image: radial-gradient(#466A97 3%, transparent 4%), radial-gradient(#466A97 3%, transparent 4%);
   background-size: 15px 15px;
+  min-width: 1044px;
+  min-height: 800px;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 
 @font-face {
@@ -115,8 +119,6 @@ body {
   overflow-y: hidden;
   overflow-x: auto;
   white-space: nowrap;
-  border: 1px solid #4C5B6D;
-  background-color: rgba(35, 47, 62, 0.3);
 }
 
 .trackContainer {
@@ -156,6 +158,9 @@ body {
 #turntable {
   display: grid;
   grid-template-columns: 40% 20% 40%;
+  padding-top: 10px;
+  border: 1px solid #4C5B6D;
+  background-color: rgba(35, 47, 62, 0.3);
 }
 
 /*** ADDTRACK start ***/
