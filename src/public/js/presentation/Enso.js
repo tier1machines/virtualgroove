@@ -40,11 +40,22 @@ const Enso = props => {
     };
 
     for (let i = 0; i < numberOfEls; i++) createEl(i);
+  };
+
+  function ticker() {
+	console.log('Add tracks to begin playing music');
+	// TODO: When player is paused, display pause sign, otherwise display message
   }
 
   useEffect( () => { 
-	animate();
-  }, []);
+	// Animate enso when music is playing
+	if (props.status === 1) {
+	  animate();
+	} else {
+	// Otherwise display message
+	  ticker();
+	}
+  });
 
 
   return (

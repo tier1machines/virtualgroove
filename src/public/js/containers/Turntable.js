@@ -38,7 +38,7 @@ class Turntable extends Component {
 	return (
 	  <div id='turntable'>
 		<Search onChange={this.onChange} onSubmit={this.onSubmit} searchTerm={this.state.searchTerm} />
-		<Enso />
+		<Enso status={this.props.status} />
 		<Results searchResults={this.state.searchResults} addTrack={this.props.addTrack} />
 	  </div>
 	)
