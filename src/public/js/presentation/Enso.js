@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import anime from 'animejs';
 
 const Enso = props => {
@@ -47,13 +47,19 @@ const Enso = props => {
 	// TODO: When player is paused, display pause sign, otherwise display message
   }
 
+  // Store prev props in a ref
+  const prevState = useRef();
+
   useEffect( () => { 
+	const elem = document.getElementById('anime');
 	// Animate enso when music is playing
-	if (props.status === 1) {
+	if (props.status === 1 && !elem.firstChild) {
 	  animate();
-	} else {
-	// Otherwise display message
-	  ticker();
+	} else if (props.status === 0 || props.status === 2) {
+	  // Otherwise remove Enso 
+	  while (elem.firstChild) {
+	    elem.removeChild(elem.firstChild);
+	  }
 	}
   });
 
