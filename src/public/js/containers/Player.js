@@ -14,7 +14,10 @@ class Player extends Component {
 	// check if API script is loaded, if not begin loading async
 	if (!window.YT) {
 	  const tag = document.createElement('script');
-	  tag.src = 'https://www.youtube.com/iframe_api';
+	  // Load script locally
+	  tag.src = 'http://localhost:7000/dist/youtube_api.js';
+	  // Option to load file directly from youtube
+	  //tag.src = 'https://www.youtube.com/iframe_api';
 
 	  // onYoutubeIframeAPIReady will load the video after the script is loaded
 	  if (this.props.currentVideo !== '') {
@@ -68,15 +71,18 @@ class Player extends Component {
 	// 3 (buffering)
 	// 5 (video cued)
 	this.props.setStatus(event.data);
+	console.log('Player status: ', event.data);
 	if (event.data === 0) {
 	  // check if next song exists in queue
-	  if (this.props.index + 1 <= this.props.queue.length - 1) {
+	  console.log('Index: ',this.props.index, 'Queue len: ', this.props.queue.length)
+	  let nextSongIndex = this.props.index + 1;
+	  if (this.props.queue[nextSongIndex]) {
 		// set next video as current video and update index
 		const nextIndex = this.props.index + 1;
 		this.props.setCurrentVideo(queue[nextIndex], nextIndex);
 	  };
 	} else {
-	  console.log('Player status: ', event.data);
+	  console.log('Player status changed: ', event.data);
 	}
   };
 
