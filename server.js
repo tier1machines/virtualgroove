@@ -15,7 +15,7 @@ const auth = require('./routes/auth');
 
 // Serve static files
 app.use('/dist', express.static(path.join(__dirname, 'dist')));
-app.use('/css',express.static(path.join(__dirname, 'src', 'public', 'css')));
+app.use('/css', express.static(path.join(__dirname, 'src', 'public', 'css')));
 
 // Routes
 app.use('/api', api);
