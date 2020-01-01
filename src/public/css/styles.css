@@ -225,3 +225,29 @@ body {
 }
 
 /* ADDTRACK end */
+
+/* LOGIN start*/
+#login-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 15%;
+  border: 1px solid white;
+}
+#login,
+#login-btn,
+#signup-btn{
+  margin-top: 3px;
+  height: 2.5%;
+}
+#login-btn,
+#login-box a{
+  font-size: 14px;
+  font-family: Pirulen;
+  background-color: #C3EAFF;
+  color: #16212E;
+  border: 1px groove #16212E;
+  vertical-align: middle;
+}
+/* LOGIN end*/
