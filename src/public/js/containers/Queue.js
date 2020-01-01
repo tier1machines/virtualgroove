@@ -20,7 +20,7 @@ class Queue extends Component {
 		  {tracks}
 		</div>
 	  </div>
-	)
+		)
   }
 }
 
