@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import isEmpty from '../utils/is-empty';
 
 class Player extends Component {
 
@@ -20,7 +22,7 @@ class Player extends Component {
 	  //tag.src = 'https://www.youtube.com/iframe_api';
 
 	  // onYoutubeIframeAPIReady will load the video after the script is loaded
-	  if (this.props.currentVideo !== '') {
+	  if (!isEmpty(this.props.dashboard.currentVideo)) {
 		window.onYouTubeIframeAPIReady = this.loadVideo;
 	  }
 
@@ -33,18 +35,19 @@ class Player extends Component {
 
   // Load next video on prop change
   componentDidUpdate = prevProps => {
-	if (this.props.currentVideo  && this.props.currentVideo !== prevProps.currentVideo && prevProps.currentVideo === '') {
-	  console.log('Initializing', this.props.currentVideo);
+	if (this.props.dashboard.currentVideo  && this.props.dashboard.currentVideo !== prevProps.dashboard.currentVideo && prevProps.dashboard.currentVideo === '') {
+	  console.log('Initializing', this.props.dashboard.currentVideo);
 	  this.loadVideo();
-	} else if (this.props.currentVideo && this.props.currentVideo !== prevProps.currentVideo) {
+	} else if (this.props.dashboard.currentVideo && this.props.dashboard.currentVideo !== prevProps.dashboard.currentVideo) {
 	  console.log('Booting next video');
-	  this.player.loadVideoById(this.props.currentVideo);
+	  this.player.loadVideoById(this.props.dashboard.currentVideo);
 	}
   };
 
   // Create a new YT player object
   loadVideo = () => {
-	const { currentVideo } = this.props;
+	const { currentVideo } = this.props.dashboard;
+	console.log('Current video ', currentVideo);
 	// The Player object is created uniquely based on the id passed as props
 	this.player = new window.YT.Player(`youtube-player-main`, {
 	  height: '100%',
@@ -96,4 +99,12 @@ class Player extends Component {
   }
 }
 
-export default Player;
+const mapStateToProps = reducers => ({
+  dashboard: reducers.dashboard,
+});
+
+const mapDispatchToProps = {
+
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Player);

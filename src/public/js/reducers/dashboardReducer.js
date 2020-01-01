@@ -10,7 +10,6 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
 	case types.ADD_TRACK:
-	  console.log(action.payload);
 	  const queueCopyAdd = Object.assign([], state.queue);
 	  queueCopyAdd.push(action.payload);
 	  return {
@@ -21,7 +20,8 @@ export default function(state = initialState, action) {
 	case types.SET_CURRENT_VIDEO:
 	  return {
 		...state,
-		currentVideo: action.payload
+		currentVideo: action.payload.video.id.videoId,
+		index: action.payload.index,
 	  }
 
 	case types.REMOVE_VIDEO:
