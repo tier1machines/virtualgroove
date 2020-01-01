@@ -15,14 +15,11 @@ class Dashboard extends Component {
 			index: '',
 			status: '',
 			queue: [],
-			//
 			id: '',
 			password: '',
-			loginSuccess: false
-			//
 		}
 	};
-	//
+	//login
 	onChangeId = id => {
 		this.setState({ id: id })
 	}
@@ -58,7 +55,6 @@ class Dashboard extends Component {
 	};
 
 	removeVideo = index => {
-		console.log('Removing video');
 		const queueCopy = Object.assign([], this.state.queue);
 		queueCopy.splice(index, 1);
 		this.setState({ queue: queueCopy });
