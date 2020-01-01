@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 /*** COMPONENTS ***/
 import Navbar from './containers/Navbar';
 import Dashboard from './containers/Dashboard';
-import Login from './containers/Login';
+import Login from './presentation/Login';
 
 const Root = () => {
 	return (
