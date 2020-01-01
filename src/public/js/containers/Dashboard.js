@@ -4,7 +4,6 @@ import axios from 'axios';
 /* Components */
 import Player from './Player';
 import Controls from './Controls';
-import Login from './Login';
 
 class Dashboard extends Component {
 
