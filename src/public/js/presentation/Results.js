@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addTrack } from '../actions/dashboardActions';
 
 const Results = props => {
 
@@ -18,4 +20,13 @@ const Results = props => {
   )
 }
 
-export default Results;
+const mapStateToProps = reducers => ({
+  queue: reducers.queue
+});
+
+const mapDispatchToProps = {
+  addTrack
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Results);
