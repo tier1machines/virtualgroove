@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 // Route Handlers
 const api = require('./routes/api');
 const auth = require('./routes/auth');
+const broker = require('./routes/broker');
 
 // Serve static files
 app.use('/dist', express.static(path.join(__dirname, 'dist')));
@@ -20,6 +21,7 @@ app.use('/css', express.static(path.join(__dirname, 'src', 'public', 'css')));
 // Routes
 app.use('/api', api);
 app.use('/auth', auth);
+app.use('/broker', broker);
 
 
 app.get('/*', (req, res) => {
