@@ -2,6 +2,7 @@ import * as types from '../constants/types';
 import isEmpty from '../utils/is-empty';
 
 const initialState = {
+
   isAuthenticated: false,
 	user: {},
 	username: '',
@@ -44,7 +45,19 @@ export default function(state = initialState, action) {
 
 		}
 
-	default:
-	  return state;
-  }
+		case types.ID_INPUT:
+			return {
+				...state,
+				id: action.payload
+			}
+
+		case types.PASSWORD_INPUT:
+			return {
+				...state,
+				password: action.payload
+			}
+
+		default:
+			return state;
+	}
 };

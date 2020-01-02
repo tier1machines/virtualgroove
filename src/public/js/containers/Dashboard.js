@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+
 import axios from 'axios';
+
 /* Components */
 import Player from './Player';
 import Controls from './Controls';
@@ -15,10 +17,6 @@ class Dashboard extends Component {
 			index: '',
 			status: '',
 			queue: [],
-			username: '',
-			email: '',
-			password: '',
-			id: '',
 		}
   };
 
@@ -38,6 +36,7 @@ class Dashboard extends Component {
 				console.log('response', resposnse)
 			})
 	}
+
 
 	register = () => {
 		axios.post('/auth/register', {
@@ -85,9 +84,9 @@ class Dashboard extends Component {
   render() {
 	return (
 	  <div id='dashboard' >
-			{/* <Player setStatus={this.setStatus} setCurrentVideo={this.setCurrentVideo}  /> */}
-			<Register registerName={this.registerName} registerEmail={this.registerEmail} registerPassword={this.registerPassword}/>
-			{/* <Controls queue={this.state.queue} addTrack={this.addTrack} setCurrentVideo={this.setCurrentVideo} status={this.state.status} removeVideo={this.removeVideo} /> */}
+			{<Player setStatus={this.setStatus} setCurrentVideo={this.setCurrentVideo}  />}
+// 			<Register registerName={this.registerName} registerEmail={this.registerEmail} registerPassword={this.registerPassword}/>
+			{<Controls queue={this.state.queue} addTrack={this.addTrack} setCurrentVideo={this.setCurrentVideo} status={this.state.status} removeVideo={this.removeVideo} />}
 	  </div>
 	)
   }
