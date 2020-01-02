@@ -21,7 +21,7 @@ app.use('/css', express.static(path.join(__dirname, 'src', 'public', 'css')));
 // Routes
 app.use('/api', api);
 app.use('/auth', auth);
-app.use('/broker', broker);
+//app.use('/broker', broker);
 
 
 app.get('/*', (req, res) => {
