@@ -8,22 +8,29 @@ export const addTrack = video => dispatch => {
   // If no items in the queue, load selected video
   console.log(store.getState().dashboard);
   if (isEmpty(store.getState().dashboard.queue)) {
-	dispatch({ 
-	  type: types.SET_CURRENT_VIDEO,
-	  payload: { video, index: 0 }
-	});
+    dispatch({
+      type: types.SET_CURRENT_VIDEO,
+      payload: { video, index: 0 }
+    });
   }
   dispatch({
-	type: types.ADD_TRACK,
-	payload: video
+    type: types.ADD_TRACK,
+    payload: video
   })
 };
-
 
 // Set current video
 export const setCurrentVideo = (video, index) => {
   return {
-	type: types.SET_CURRENT_VIDEO,
-	payload: { video, index }
+    type: types.SET_CURRENT_VIDEO,
+    payload: { video, index }
   }
 };
+
+//remove video
+export const removeVideo = index => {
+  return {
+    type: types.REMOVE_VIDEO,
+    payload: index
+  }
+}
