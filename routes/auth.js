@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-router.get('/register', (req, res, next) => {
+router.post('/register', (req, res, next) => {
   res.json({
     confirmation: 'Register new user'
   });

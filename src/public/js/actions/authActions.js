@@ -33,16 +33,42 @@ export const setCurrentUser = decodedUser => {
 }
 
 // Register a new user then redirect back to login page
-export const registerUser = (userData, history) => {
+export const registerUser = (userData, history) => dispatch => { 
   axios.post('/auth/register', userData)
-    .then(res => history.push('/login'))
-    .catch(err =>
-      dispatch({
-        type: types.GET_ERRORS,
-        payload: err.response.data
-      })
-    );
+
+	.then(res => history.push('/login'))
+  	.catch(err =>
+	  dispatch({
+		type: types.FETCH_USER_DATA,
+		payload: userData
+    })
+    .catch(err => dispatch({
+      type: types.GET_ERRORS,
+      payload: err.response.data
+    }))
+	);
 };
+
+export const registerName = (name) => {
+  return {
+    type: types.CREATE_USERNAME,
+    payload: name
+  }
+}
+
+export const registerEmail = (email) => {
+  return {
+    type: types.CREATE_EMAIL,
+    payload: email
+  }
+}
+
+export const registerPassword = (password) => {
+  return {
+    type: types.CREATE_PASSWORD,
+    payload: password
+  }
+}
 
 // Log out user
 export const logoutUser = () => dispatch => {

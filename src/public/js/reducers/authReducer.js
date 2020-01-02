@@ -2,20 +2,48 @@ import * as types from '../constants/types';
 import isEmpty from '../utils/is-empty';
 
 const initialState = {
-	isAuthenticated: false,
+
+  isAuthenticated: false,
 	user: {},
-	id: '',
-	password: '',
+	username: '',
+	email: '',
+	password: ''
 }
 
-export default function (state = initialState, action) {
-	switch (action.type) {
-		case types.SET_CURRENT_USER:
-			return {
-				...state,
-				isAuthenticated: !isEmpty(action.payload),
-				user: action.payload
-			}
+export default function(state = initialState, action) {
+  switch (action.type) {
+	case types.SET_CURRENT_USER:
+	  console.log('set current user');
+	  return {
+		...state,
+		isAuthenticated: !isEmpty(action.payload),
+		user: action.payload
+	  }
+	
+		case types.CREATE_USERNAME:
+			console.log('in create username', state.username);
+		return {
+			...state, 
+			username: action.payload
+		}
+
+		case types.CREATE_EMAIL: 
+		return {
+			...state, 
+			email: action.payload
+		}
+
+		case types.CREATE_PASSWORD: 
+		return {
+			...state, 
+			password: action.payload
+		}
+
+		case types.FETCH_USER_DATA: 
+		return {
+			...state, 
+
+		}
 
 		case types.ID_INPUT:
 			return {
