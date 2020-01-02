@@ -4,6 +4,7 @@ import axios from 'axios';
 import Player from './Player';
 import Controls from './Controls';
 // import Register from '../Register';
+import Register from '../Register.js';
 
 class Dashboard extends Component {
 
@@ -69,24 +70,24 @@ class Dashboard extends Component {
 	this.setState({ queue: queueCopy });
   };
 
-	registerName = (username) => {
-		this.setState({ username });
-	};
+	// registerName = (username) => {
+	// 	this.setState({ username });
+	// };
 	
-	registerEmail = (email) => {
-		this.setState({ email });
-	};
+	// registerEmail = (email) => {
+	// 	this.setState({ email });
+	// };
 
-	registerPassword = (password) => {
-		this.setState({ password });
-	};
+	// registerPassword = (password) => {
+	// 	this.setState({ password });
+	// };
 
   render() {
 	return (
-	  <div id='dashboard'>
-			<Player setStatus={this.setStatus} setCurrentVideo={this.setCurrentVideo}  />
-			{/* <Register registerName={this.registerName} registerEmail={this.registerEmail} registerPassword={this.registerPassword}/> */}
-			<Controls queue={this.state.queue} addTrack={this.addTrack} setCurrentVideo={this.setCurrentVideo} status={this.state.status} removeVideo={this.removeVideo} />
+	  <div id='dashboard' >
+			{/* <Player setStatus={this.setStatus} setCurrentVideo={this.setCurrentVideo}  /> */}
+			<Register registerName={this.registerName} registerEmail={this.registerEmail} registerPassword={this.registerPassword}/>
+			{/* <Controls queue={this.state.queue} addTrack={this.addTrack} setCurrentVideo={this.setCurrentVideo} status={this.state.status} removeVideo={this.removeVideo} /> */}
 	  </div>
 	)
   }
