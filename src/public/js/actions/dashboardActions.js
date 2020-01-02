@@ -26,3 +26,11 @@ export const setCurrentVideo = (video, index) => {
     payload: { video, index }
   }
 };
+
+//remove video
+export const removeVideo = index => {
+  return {
+    type: types.REMOVE_VIDEO,
+    payload: index
+  }
+}
