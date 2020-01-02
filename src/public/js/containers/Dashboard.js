@@ -3,8 +3,8 @@ import axios from 'axios';
 /* Components */
 import Player from './Player';
 import Controls from './Controls';
-// import Register from '../Register';
-import Register from '../Register.js';
+
+
 
 class Dashboard extends Component {
 
@@ -85,7 +85,7 @@ class Dashboard extends Component {
   render() {
 	return (
 	  <div id='dashboard' >
-			<Player setStatus={this.setStatus} setCurrentVideo={this.setCurrentVideo}  />
+			<Player id='player' setStatus={this.setStatus} setCurrentVideo={this.setCurrentVideo}  />
 			{/* <Register registerName={this.registerName} registerEmail={this.registerEmail} registerPassword={this.registerPassword}/> */}
 			<Controls queue={this.state.queue} addTrack={this.addTrack} setCurrentVideo={this.setCurrentVideo} status={this.state.status} removeVideo={this.removeVideo} />
 	  </div>
