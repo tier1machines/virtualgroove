@@ -13,7 +13,7 @@ import setAuthToken from './utils/setAuthToken';
 import Navbar from './containers/Navbar';
 import Dashboard from './containers/Dashboard';
 import Login from './presentation/Login';
-
+import Register from './Register'
 
 /*** Token Validation ***/
 if (localStorage.jwtToken) {
@@ -38,6 +38,7 @@ const Root = () => {
 		  <Router>
 			  <Route exact path='/' component={Dashboard} />
 			  <Route exact path='/login' component={Login} />
+				<Route exact path='/register' component={Register} />
 		  </Router>
 
 		</Provider>
