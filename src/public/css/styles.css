@@ -6,30 +6,71 @@ html, body {
   background-color: grey;
 }
 
+body {
+  background: #16212F;
+  background-image: radial-gradient(#466A97 3%, transparent 4%), radial-gradient(#466A97 3%, transparent 4%);
+  background-size: 15px 15px;
+  min-width: 1044px;
+  min-height: 800px;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+@font-face {
+  font-family: Samba;
+  src: url("./fonts/Samba.ttf");
+}
+
+@font-face {
+  font-family: Pirulen;
+  src: url("./fonts/Pirulen.ttf");
+}
+
+/* Scroll Bar 
+::-webkit-scrollbar {
+  background: #C3EAFF;
+}
+::-webkit-scrollbar-track {
+  background: #16212E;
+}
+::-webkit-scrollbar-button {
+  background: #232F3E;
+}
+::-webkit-scrollbar-thumb {
+  background: #C3EAFF;
+}
+*/
+
 #root {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-rows: 60px calc(100% - 60px);
+  grid-template-rows: 40px calc(100% - 40px);
 }
 
 #navbar {
   width: 100%;
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  text-align: center;
+  align-content: center;
+  color: ghostwhite;
+  font-family: Pirulen;
+  border: 1px solid #4C5B6D;
+  background-color: rgba(35, 47, 62, 0.3);
 }
 
 #dashboard {
   height: 100%;
   min-height: 500px;
   width: 100%;
-  background-color: ghostwhite;
   display: grid;
   grid-template-rows: 50% 50%;
 }
 
 #player {
-  background-color: red;
 }
 
 #iframe-container {
@@ -51,22 +92,42 @@ html, body {
 
 #queue {
   display: grid;
-  grid-template-rows: calc(100% - 220px) 220px;
-  background-color: lightblue;
+  grid-template-rows: calc(100% - 215px) 215px;
 }
 
 /*** ENSO start ***/
-#enso {
+#enso{
+  position: relative;
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
-.void {
-  background-color: black;
+#anime {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1px;
+  height: 100%;
 }
 
-#animejs {
+.el {
+  position: absolute;
+  opacity: 1;
+  width: 2px;
+  height: 30%;
+  margin-top: -4vh;
+  transform-origin: 50% 100%;
+  background: white;
 }
 
 /* ENSO end */
+
+#trackList {
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+}
 
 .trackContainer {
   height: 200px;
@@ -74,37 +135,119 @@ html, body {
   border: 1px solid black;
   margin: 10px;
   display: inline-block;
+  position: relative;
+  white-space: normal;
 }
 
-.track {
-  background-color: green;
-  display: inline;
+.trackContainer:hover {
+  cursor: pointer;
 }
 
-#enso{
-  background-color: teal;
+.trackCover {
+  height: 100%;
+  width: 100%;
+}
+
+.trackTitle {
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+  bottom: 0;
+  text-align: center;
+  color: ghostwhite;
+  text-shadow: 1px 1px 1px black;
+  font-family: Roboto, arial, sans-serif;
+  background:rgba(0,0,0,0.5);
+  min-height: 3em;
+  padding-top: 10px;
+}
+
+.remove {
+  color: white;
+  top: 0;
+  right: 0;
 }
 
 #turntable {
   display: grid;
   grid-template-columns: 40% 20% 40%;
-  background-color: orange;
+  padding-top: 10px;
+  border: 1px solid #4C5B6D;
+  background-color: rgba(35, 47, 62, 0.3);
 }
 
 /*** ADDTRACK start ***/
 #search {
   display: grid;
-  grid-template-rows: calc((100% - 50px) / 2) 50px calc((100% - 50px) / 2);
-  background-color: lightpink;
+  grid-template-rows: calc((100% - 40px) / 2) 40px calc((100% - 40px) / 2);
+}
+
+.searchBtn {
+  font-size: 14px;
+  font-family: Pirulen;
+  background-color: #C3EAFF;
+  color: #16212E;
+  border: 1px groove #16212E;
+}
+
+.searchBtn:hover {
+  cursor: pointer;
+  background-color: rgba(195, 234, 255, 0.7);
+}
+
+.searchBtn:active {
+  background-color: #4C5B6D;
+  color: #16212E;
 }
 
 #addTrackContainer {
-  background-color: wheat;
-  padding-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+#addTrackInput {
+  margin-right: 10px;
+  font-size: 14px;
+  font-family: Pirulen;
 }
 
 #results {
-  background-color: lightyellow;
+  display: grid;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+#resultsContainer {
+  white-space: nowrap;
+}
+
+.void {
 }
 
 /* ADDTRACK end */
+
+/* LOGIN start*/
+#login-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 15%;
+  border: 1px solid white;
+}
+#login,
+#login-btn,
+#signup-btn{
+  margin-top: 3px;
+  height: 2.5%;
+}
+#login-btn,
+#login-box a{
+  font-size: 14px;
+  font-family: Pirulen;
+  background-color: #C3EAFF;
+  color: #16212E;
+  border: 1px groove #16212E;
+  vertical-align: middle;
+}
+/* LOGIN end*/

@@ -1,27 +1,25 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+/* Actions */
+import { setCurrentVideo } from '../actions/dashboardActions';
 
 /* Components */
 import Track from '../presentation/Track';
 import Turntable from './Turntable';
 
 class Queue extends Component {
-  constructor() {
-	super();
-	this.state = {
-	  tracks: [1, 2],
-	}
-  }
 
   render() {
-	const tracks = this.state.tracks.map( (track, i) => (
-	  <div className='trackContainer' key={i}>
-		<Track />
+	const tracks = this.props.dashboard.queue.map( (track, i) => (
+	  <div className='trackContainer' onClick={() => this.props.setCurrentVideo(track, i)} key={i}>
+		<Track track={track} removeVideo={this.props.removeVideo} index={i} />
 	  </div>
 	));
 
 	return (
 	  <div id='queue'>
-		<Turntable />
+		<Turntable addTrack={this.props.addTrack} status={this.props.status}/>
 		<div id='trackList'>
 		  {tracks}
 		</div>
@@ -30,4 +28,12 @@ class Queue extends Component {
   }
 }
 
-export default Queue;
+const mapStateToProps = reducers => ({
+  dashboard: reducers.dashboard
+});
+
+const mapDispatchToProps = {
+  setCurrentVideo,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Queue);
