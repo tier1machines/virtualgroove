@@ -84,11 +84,8 @@ class Dashboard extends Component {
   render() {
 	return (
 	  <div id='dashboard' >
-
-			<Player id='player' setStatus={this.setStatus} setCurrentVideo={this.setCurrentVideo}  />
-			{/* <Register registerName={this.registerName} registerEmail={this.registerEmail} registerPassword={this.registerPassword}/> */}
-			<Controls queue={this.state.queue} addTrack={this.addTrack} setCurrentVideo={this.setCurrentVideo} status={this.state.status} removeVideo={this.removeVideo} />
-
+		<Player setStatus={this.setStatus} setCurrentVideo={this.setCurrentVideo}  />
+		<Controls queue={this.state.queue} addTrack={this.addTrack} setCurrentVideo={this.setCurrentVideo} status={this.state.status} removeVideo={this.removeVideo} />
 	  </div>
 	)
   }

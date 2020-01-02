@@ -9,6 +9,10 @@
   </head>
   <body>
 	<div id='root'></div>
+	<script src='/socket.io/socket.io.js'></script>
+	<script>
+	  const socket = io.connect('http://localhost:7000');
+	</script>
 	<script src='./dist/bundle.js'></script>
   </body>
 </html>
