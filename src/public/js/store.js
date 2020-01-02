@@ -10,7 +10,7 @@ const store = createStore(
   rootReducer,
   initialState,
   composeEnhancers(
-	applyMiddleware(...middleware),
+    applyMiddleware(...middleware),
   )
 );
 

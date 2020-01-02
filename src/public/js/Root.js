@@ -6,7 +6,7 @@ import store from './store';
 import setAuthToken from './utils/setAuthToken';
 
 /*** ACTIONS ***/
-
+import { setCurrentUser } from './actions/authActions';
 
 
 /*** COMPONENTS ***/
@@ -17,23 +17,24 @@ import Register from './Register'
 
 /*** Token Validation ***/
 if (localStorage.jwtToken) {
-  // Set token to auth header
-  setAuthToken(localStorage.jwtToken);
-  // Decode token to get user data
-  const decoded = jwt_decode(localStorage.jwtToken);
-  // Set user and isAuthenticated in app state
-  store.dispatch(setCurrentUser(decoded));
+	// Set token to auth header
+	setAuthToken(localStorage.jwtToken);
+	// Decode token to get user data
+	const decoded = jwt_decode(localStorage.jwtToken);
+	// Set user and isAuthenticated in app state
+	store.dispatch(setCurrentUser(decoded));
 
-  // TODO: Check for expired tokens
+	// TODO: Check for expired tokens
 }
-	
+
 
 const Root = () => {
 	return (
-	  <>
+		<>
 
-	    <Provider store={store}>
-		  <Navbar />
+			<Provider store={store}>
+				<Navbar />
+
 
 		  <Router>
 			  <Route exact path='/' component={Dashboard} />
@@ -41,9 +42,10 @@ const Root = () => {
 				<Route exact path='/register' component={Register} />
 		  </Router>
 
-		</Provider>
 
-	  </>
+			</Provider>
+
+		</>
 	)
 }
 

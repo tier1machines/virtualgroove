@@ -2,15 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 // Actions
-import { loginUser } from '../actions/authActions';
-import { dispatch } from 'rxjs/internal/observable/pairs';
+import { loginUser, onChangeId, onChangePassword } from '../actions/authActions';
 
 const Login = props => (
-  <div id=''>
+  <div id='login-box-parent'>
     <div id='login-box'>
-      <input id='email' type='text' onChange={e => null}  placeholder='ID'></input>
-      <input id='password' type='password' onChange={e => null} placeholder='Password'></input>
-      <button id='login-btn' onClick={() => props.loginUser()}>Log in</button>
+      <input id='email' type='text' onChange={e => props.onChangeId(e.target.value)} placeholder='ID'></input>
+      <input id='password' type='password' onChange={e => props.onChangePassword(e.target.value)} placeholder='Password'></input>
+      <button id='login-btn' onClick={() => props.loginUser({ id: props.auth.id, password: props.auth.password })}>Log in</button>
       <a id='signup-btn' onClick={() => { }}>Sign up</a>
     </div>
   </div>
@@ -19,5 +18,10 @@ const Login = props => (
 const mapStateToProps = reducers => ({
   auth: reducers.auth
 })
+const mapDispatchToProps = {
+  loginUser,
+  onChangeId,
+  onChangePassword
+}
 
-export default connect(mapStateToProps, { loginUser })(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

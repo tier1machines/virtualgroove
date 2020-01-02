@@ -231,29 +231,35 @@ body {
 /* ADDTRACK end */
 
 /* LOGIN start*/
+#login-box-parent{
+  display: flex;
+}
 #login-box{
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  width: 15%;
-  border: 1px solid white;
+  width: 40%;
+  margin: auto;
+  margin-bottom: 600px;
 }
-#login,
+#email, 
+#password,
 #login-btn,
 #signup-btn{
-  margin-top: 3px;
+  margin-top: 10px;
   height: 2.5%;
 }
 #login-btn,
 #login-box a{
-  font-size: 14px;
+  font-size: 28px;
   font-family: Pirulen;
   background-color: #C3EAFF;
   color: #16212E;
   border: 1px groove #16212E;
   vertical-align: middle;
 }
+
 /* LOGIN end*/
 
 /* REGISTER start */
@@ -279,3 +285,22 @@ body {
   padding: 20px;
 }
 /* REGISTER end */
+=======
+#login-btn:hover,
+#login-box a:hover {
+  cursor: pointer;
+  background-color: rgba(195, 234, 255, 0.7);
+}
+
+#login-btn:active,
+#login-box a:active {
+  background-color: #4C5B6D;
+  color: #16212E;
+}
+#email, 
+#password{
+  font-size: 28px;
+  padding: 10px;
+}
+/* LOGIN end*/
+
