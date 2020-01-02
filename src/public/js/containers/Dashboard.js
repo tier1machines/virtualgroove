@@ -3,7 +3,7 @@ import axios from 'axios';
 /* Components */
 import Player from './Player';
 import Controls from './Controls';
-import Register from '../Register';
+// import Register from '../Register';
 
 class Dashboard extends Component {
 
@@ -11,14 +11,32 @@ class Dashboard extends Component {
 		super();
 		this.state = {
 			currentVideo: '',
-			index: 0,
+			index: '',
 			status: '',
 			queue: [],
 			username: '',
 			email: '',
 			password: '',
+			id: '',
 		}
   };
+
+	//login functions
+	onChangeId = id => {
+		this.setState({ id: id })
+	}
+	onChangePassword = password => {
+		this.setState({ password: password })
+	}
+	handleLogin = () => {
+		axios.post('/auth/login', {
+			username: this.state.id,
+			password: this.state.password
+		})
+			.then(resposnse => {
+				console.log('response', resposnse)
+			})
+	}
 
 	register = () => {
 		axios.post('/auth/register', {
@@ -30,7 +48,7 @@ class Dashboard extends Component {
 	
   addTrack = e => {
 	if (!this.state.queue.length) {
-	  this.setState({ currentVideo : e.id.videoId });
+	  this.setState({ currentVideo: e.id.videoId });
 	};
 	const queueCopy = Object.assign([], this.state.queue);
 	queueCopy.push(e);
@@ -66,9 +84,9 @@ class Dashboard extends Component {
   render() {
 	return (
 	  <div id='dashboard'>
-		<Player currentVideo={this.state.currentVideo} setStatus={this.setStatus} setCurrentVideo={this.setCurrentVideo} queue={this.state.queue} index={this.state.index} />
-		<Register registerName={this.registerName} registerEmail={this.registerName} registerPassword={this.registerPassword}/>
-		<Controls queue={this.state.queue} addTrack={this.addTrack} setCurrentVideo={this.setCurrentVideo} status={this.state.status} removeVideo={this.removeVideo} />
+			<Player currentVideo={this.state.currentVideo} setStatus={this.setStatus} setCurrentVideo={this.setCurrentVideo} queue={this.state.queue} index={this.state.index} />
+			{/* <Register registerName={this.registerName} registerEmail={this.registerName} registerPassword={this.registerPassword}/> */}
+			<Controls queue={this.state.queue} addTrack={this.addTrack} setCurrentVideo={this.setCurrentVideo} status={this.state.status} removeVideo={this.removeVideo} />
 	  </div>
 	)
   }
