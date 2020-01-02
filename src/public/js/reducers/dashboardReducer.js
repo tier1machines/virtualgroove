@@ -25,6 +25,7 @@ export default function (state = initialState, action) {
 			}
 
 		case types.REMOVE_VIDEO:
+			console.log('im in remove video', queue)
 			const queueCopyRemove = Object.assign([], state.queue);
 			queueCopyRemove.splice(state.index, 1);
 			return {
