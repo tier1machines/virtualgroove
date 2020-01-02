@@ -28,5 +28,8 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// RabbitMQ worker
+const consumer = require('./msgbroker/worker');
+consumer();
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
