@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 /* Actions */
-import { setCurrentVideo, addTrack } from '../actions/dashboardActions';
+import { setCurrentVideo, addReco } from '../actions/dashboardActions';
 
 /* Components */
 import Track from '../presentation/Track';
@@ -12,8 +12,7 @@ class Queue extends Component {
 
   render() {
 	socket.on('reco', video => {
-	  console.log('New reco: ', video);
-	  this.props.addTrack(video);
+	  this.props.addReco(video);
 	});
 
 	const tracks = this.props.dashboard.queue.map( (track, i) => (
@@ -39,7 +38,7 @@ const mapStateToProps = reducers => ({
 
 const mapDispatchToProps = {
   setCurrentVideo,
-  addTrack
+  addReco
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Queue);
