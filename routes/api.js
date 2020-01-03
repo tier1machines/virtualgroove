@@ -14,10 +14,10 @@ router.post('/search', (req, res) => {
   const queryURL = baseURL + `/search?part=snippet&q=${searchTerm}&order=viewCount&type=video&videoEmbeddable=true&key=${youtube_api3}`
 
   axios.get(queryURL)
-	   .then( response => {
-		 res.json(response.data.items)
-	   })
-	   .catch( err => console.log(err));
+    .then(response => {
+      res.json(response.data.items)
+    })
+    .catch(err => console.log(err));
 
 
 

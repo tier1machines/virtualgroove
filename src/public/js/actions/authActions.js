@@ -4,7 +4,7 @@ import jwt_decode from 'jwt-decode';
 import setAuthToken from '../utils/setAuthToken';
 
 // Log in a user
-export const loginUser = userData => dispatch => {
+export const loginUser = (userData, history) => dispatch => {
   console.log('im in loginuser', userData)
   axios.post('/auth/login', userData)
     .then(res => {
@@ -19,10 +19,11 @@ export const loginUser = userData => dispatch => {
       // Set current user
       dispatch(setCurrentUser(decoded));
     })
-    .catch(err => dispatch({
-      type: types.GET_ERRORS,
-      payload: err.response.data
-    }))
+    .then(res => {
+      console.log('im redirect')
+      history.push('/')
+    })
+    .catch(err => console.log('error', err))
 }
 
 export const setCurrentUser = decodedUser => {
@@ -33,20 +34,17 @@ export const setCurrentUser = decodedUser => {
 }
 
 // Register a new user then redirect back to login page
-export const registerUser = (userData, history) => dispatch => { 
+export const registerUser = (userData, history) => dispatch => {
   axios.post('/auth/register', userData)
 
-	.then(res => history.push('/login'))
-  	.catch(err =>
-	  dispatch({
-		type: types.FETCH_USER_DATA,
-		payload: userData
-    })
-    .catch(err => dispatch({
-      type: types.GET_ERRORS,
-      payload: err.response.data
-    }))
-	);
+    .then(res => history.push('/login'))
+    .catch(err =>
+      dispatch({
+        type: types.FETCH_USER_DATA,
+        payload: userData
+      })
+        .catch(err => console.log('error', err))
+    );
 };
 
 export const registerName = (name) => {
@@ -82,7 +80,6 @@ export const logoutUser = () => dispatch => {
 
 // Login onChange
 export const onChangeId = id => {
-  console.log('im in action', id)
   return {
     type: types.ID_INPUT,
     payload: id

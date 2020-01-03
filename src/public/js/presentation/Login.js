@@ -9,7 +9,7 @@ const Login = props => (
     <div id='login-box'>
       <input id='email' type='text' onChange={e => props.onChangeId(e.target.value)} placeholder='ID'></input>
       <input id='password' type='password' onChange={e => props.onChangePassword(e.target.value)} placeholder='Password'></input>
-      <button id='login-btn' onClick={() => props.loginUser({ id: props.auth.id, password: props.auth.password })}>Log in</button>
+      <button id='login-btn' onClick={() => props.loginUser({ id: props.auth.id, password: props.auth.password }, props.history)}>Log in</button>
       <a id='signup-btn' onClick={() => { }}>Sign up</a>
     </div>
   </div>
