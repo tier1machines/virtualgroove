@@ -5,6 +5,7 @@ const initialState = {
 	index: '',
 	status: '',
 	queue: [],
+	reco: {},
 };
 
 export default function (state = initialState, action) {
@@ -25,11 +26,18 @@ export default function (state = initialState, action) {
 			}
 
 		case types.REMOVE_VIDEO:
+			console.log('im in remove video', queue)
 			const queueCopyRemove = Object.assign([], state.queue);
 			queueCopyRemove.splice(state.index, 1);
 			return {
 				...state,
 				queue: queueCopyRemove
+			}
+
+		case types.ADD_RECO:
+		  	return {
+			  ...state,
+			  reco: action.payload
 			}
 
 		default:

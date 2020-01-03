@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import isEmpty from '../utils/is-empty';
+import { setCurrentVideo } from '../actions/dashboardActions';
 
 class Player extends Component {
 
@@ -77,18 +78,18 @@ class Player extends Component {
 		console.log('Player status: ', event.data);
 		if (event.data === 0) {
 			// check if next song exists in queue
-			console.log('Index: ', this.props.index, 'Queue len: ', this.props.queue.length)
-			let nextSongIndex = this.props.index + 1;
-			if (this.props.queue[nextSongIndex]) {
+			console.log('Index: ', this.props.dashboard.index, 'Queue len: ', this.props.dashboard.queue.length)
+			let nextSongIndex = this.props.dashboard.index + 1;
+			if (this.props.dashboard.queue[nextSongIndex]) {
 				// set next video as current video and update index
-				const nextIndex = this.props.index + 1;
-				this.props.setCurrentVideo(queue[nextIndex], nextIndex);
+				const nextIndex = this.props.dashboard.index + 1;
+				console.log('Next index', nextIndex);
+				this.props.setCurrentVideo(this.props.dashboard.queue[nextIndex], nextIndex);
 			};
 		} else {
 			console.log('Player status changed: ', event.data);
 		}
-	};
-
+	}
 	render() {
 		return (
 			<div id='player'>
@@ -98,12 +99,12 @@ class Player extends Component {
 		)
 	}
 }
-
 const mapStateToProps = reducers => ({
 	dashboard: reducers.dashboard,
 });
 
 const mapDispatchToProps = {
+	setCurrentVideo
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Player);
+export default connect(mapStateToProps, mapDispatchToProps)(Player)

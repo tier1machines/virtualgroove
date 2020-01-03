@@ -68,9 +68,13 @@ body {
   width: 100%;
   display: grid;
   grid-template-rows: 50% 50%;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
 }
 
 #player {
+  min-height: 350px;
 }
 
 #iframe-container {
@@ -255,6 +259,33 @@ body {
   border: 1px groove #16212E;
   vertical-align: middle;
 }
+
+/* LOGIN end*/
+
+/* REGISTER start */
+.register-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  text-align: center;
+  width: 100%;
+  align-content: center;
+  margin-left: 600px;
+  margin-right: 600px;
+  height: 100%;
+}
+
+.register-inputfield {
+  padding: 20px;
+  font-family: Samba;
+  font-size: 15px;
+}
+
+#sign-up-btn {
+  padding: 20px;
+}
+/* REGISTER end */
+=======
 #login-btn:hover,
 #login-box a:hover {
   cursor: pointer;
@@ -272,3 +303,4 @@ body {
   padding: 10px;
 }
 /* LOGIN end*/
+

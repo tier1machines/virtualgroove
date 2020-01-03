@@ -17,6 +17,14 @@ export const addTrack = video => dispatch => {
     type: types.ADD_TRACK,
     payload: video
   })
+  if (!isEmpty(store.getState().dashboard.reco)) {
+	setTimeout(() => {
+	  dispatch({
+		type: types.ADD_TRACK,
+		payload: store.getState().dashboard.reco
+	  })
+	}, 5000);
+  };
 };
 
 // Set current video
@@ -24,5 +32,20 @@ export const setCurrentVideo = (video, index) => {
   return {
     type: types.SET_CURRENT_VIDEO,
     payload: { video, index }
+  }
+};
+
+//remove video
+export const removeVideo = index => {
+  return {
+    type: types.REMOVE_VIDEO,
+    payload: index
+  }
+};
+
+export const addReco = video => {
+  return {
+	type: types.ADD_RECO,
+	payload: video
   }
 };

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 /* Actions */
-import { setCurrentVideo } from '../actions/dashboardActions';
+import { setCurrentVideo, addReco } from '../actions/dashboardActions';
 
 /* Components */
 import Track from '../presentation/Track';
@@ -11,6 +11,10 @@ import Turntable from './Turntable';
 class Queue extends Component {
 
   render() {
+	socket.on('reco', video => {
+	  this.props.addReco(video);
+	});
+
 	const tracks = this.props.dashboard.queue.map( (track, i) => (
 	  <div className='trackContainer' onClick={() => this.props.setCurrentVideo(track, i)} key={i}>
 		<Track track={track} removeVideo={this.props.removeVideo} index={i} />
@@ -24,7 +28,7 @@ class Queue extends Component {
 		  {tracks}
 		</div>
 	  </div>
-	)
+		)
   }
 }
 
@@ -34,6 +38,7 @@ const mapStateToProps = reducers => ({
 
 const mapDispatchToProps = {
   setCurrentVideo,
+  addReco
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Queue);
