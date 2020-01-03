@@ -28,7 +28,7 @@ class Turntable extends Component {
 	e.preventDefault();
 	axios.post('/api/search/', { searchTerm: this.state.searchTerm })
 		 .then( res => {
-		   this.setState({ searchResults: res.data})
+		   this.setState({ searchResults: res.data })
 		 })
 		 .catch( err => console.log(err) );
   }
