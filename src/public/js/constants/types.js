@@ -18,5 +18,5 @@ export const CREATE_PASSWORD = 'CREATE_PASSWORD';
 export const FETCH_USER_DATA = 'FETCH_USER_DATA';
 
 /* ID and PW actions */
-export const ID_INPUT = 'ID_INPUT';
+export const EMAIL_INPUT = 'ID_INPUT';
 export const PASSWORD_INPUT = 'PASSWORD_INPUT'
