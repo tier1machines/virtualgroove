@@ -56,7 +56,6 @@ export const logoutUser = () => dispatch => {
 
 // Login onChange
 export const onChangeId = id => {
-  console.log('im in action', id)
   return {
     type: types.ID_INPUT,
     payload: id
