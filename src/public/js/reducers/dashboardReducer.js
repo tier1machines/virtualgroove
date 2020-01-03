@@ -5,6 +5,7 @@ const initialState = {
 	index: '',
 	status: '',
 	queue: [],
+	reco: {},
 };
 
 export default function (state = initialState, action) {
@@ -31,6 +32,12 @@ export default function (state = initialState, action) {
 			return {
 				...state,
 				queue: queueCopyRemove
+			}
+
+		case types.ADD_RECO:
+		  	return {
+			  ...state,
+			  reco: action.payload
 			}
 
 		default:
