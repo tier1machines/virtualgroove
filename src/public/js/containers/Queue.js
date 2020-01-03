@@ -10,14 +10,8 @@ import Turntable from './Turntable';
 
 class Queue extends Component {
 
-
-  componentDidUpdate = prevProps => {
-	console.log('update: ', this.props, prevProps);
-  }
-
   render() {
 	socket.on('reco', video => {
-	  console.log('New reco: ', video);
 	  this.props.addReco(video);
 	});
 
